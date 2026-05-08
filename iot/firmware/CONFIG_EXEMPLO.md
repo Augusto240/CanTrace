@@ -20,9 +20,14 @@ const uint16_t MQTT_PORT = 1883;
 ## Como instalar bibliotecas
 1. Arduino IDE -> Sketch -> Include Library -> Manage Libraries.
 2. Instalar: PubSubClient.
-3. Instalar: DHT sensor library.
+3. Instalar: DHT sensor library (Adafruit).
+4. Instalar: Adafruit Unified Sensor (dependencia do DHT).
 
 ## Como compilar na Arduino IDE
 1. Selecionar a placa correta (ESP32 ou ESP8266).
 2. Selecionar a porta serial.
 3. Compilar e fazer Upload.
+
+## Diferencas entre ESP32 e NodeMCU
+- ESP32: usar o core "ESP32 by Espressif Systems" no Boards Manager; ADC 0-4095; LED interno geralmente ativo em nivel alto.
+- NodeMCU (ESP8266): usar o core "ESP8266 by ESP8266 Community"; ADC 0-1023; LED interno geralmente ativo em nivel baixo.

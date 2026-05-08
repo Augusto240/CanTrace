@@ -65,6 +65,7 @@ WiFiClient wifiClient;
 PubSubClient client(wifiClient);
 
 const unsigned long PUBLISH_INTERVAL_MS = 10000;
+const unsigned long WIFI_RECONNECT_TIMEOUT_MS = 15000;
 unsigned long lastPublish = 0;
 
 void setLed(bool on) {
@@ -95,15 +96,43 @@ void setupWiFi() {
   Serial.println(WiFi.localIP());
 }
 
+void ensureWiFi() {
+  if (WiFi.status() == WL_CONNECTED) {
+    return;
+  }
+
+  Serial.println("Wi-Fi desconectado. Tentando reconectar...");
+  WiFi.disconnect();
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+
+  unsigned long start = millis();
+  while (WiFi.status() != WL_CONNECTED && millis() - start < WIFI_RECONNECT_TIMEOUT_MS) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println();
+  if (WiFi.status() == WL_CONNECTED) {
+    Serial.print("Wi-Fi reconectado. IP: ");
+    Serial.println(WiFi.localIP());
+  } else {
+    Serial.println("Falha ao reconectar Wi-Fi.");
+  }
+}
+
 void connectMqtt() {
+  if (WiFi.status() != WL_CONNECTED) {
+    return;
+  }
+
   while (!client.connected()) {
     String clientId = String(DEVICE_ID) + "-" + String(random(0xffff), HEX);
     Serial.print("Conectando ao MQTT...");
 
     if (client.connect(clientId.c_str())) {
       Serial.println(" conectado.");
-      client.subscribe(TOPIC_CMD_LED);
-      client.subscribe(TOPIC_CMD_BUZZER);
+      client.subscribe(TOPIC_CMD_LED, 1);
+      client.subscribe(TOPIC_CMD_BUZZER, 1);
     } else {
       Serial.print(" falhou, rc=");
       Serial.print(client.state());
@@ -144,6 +173,7 @@ void onMqttMessage(char* topic, byte* payload, unsigned int length) {
 
   bool state = false;
   bool parsed = parseOnOff(msg, &state);
+  bool hasBeep = msg.indexOf("BEEP") >= 0;
 
   if (String(topic) == TOPIC_CMD_LED) {
     if (parsed) {
@@ -156,15 +186,15 @@ void onMqttMessage(char* topic, byte* payload, unsigned int length) {
   }
 
   if (String(topic) == TOPIC_CMD_BUZZER) {
-    if (parsed) {
-      setBuzzer(state);
-      Serial.print("BUZZER: ");
-      Serial.println(state ? "ON" : "OFF");
-    } else if (msg.indexOf("BEEP") >= 0) {
+    if (hasBeep) {
       setBuzzer(true);
       delay(200);
       setBuzzer(false);
       Serial.println("BUZZER: BEEP");
+    } else if (parsed) {
+      setBuzzer(state);
+      Serial.print("BUZZER: ");
+      Serial.println(state ? "ON" : "OFF");
     } else {
       Serial.println("Comando BUZZER desconhecido.");
     }
@@ -244,6 +274,8 @@ void setup() {
 }
 
 void loop() {
+  ensureWiFi();
+
   if (!client.connected()) {
     connectMqtt();
   }

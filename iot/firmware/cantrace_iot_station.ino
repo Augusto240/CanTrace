@@ -1,9 +1,9 @@
 /*
-  CanTrace IoT Station - Firmware base
+  CanTrace IoT Station - Firmware base (ESP32 como alvo principal)
   - Wi-Fi e MQTT
-  - Telemetria periodica (temperatura, umidade, luz)
-  - Comandos para LED e buzzer
-  - Fallback com valores simulados
+  - Telemetria periodica simulada (temperatura, umidade, luz)
+  - Comandos para LED interno (GPIO 2) e buzzer opcional
+  - Modo simulado padrao devido a indisponibilidade de sensores fisicos no laboratorio
 */
 
 #include <Arduino.h>
@@ -17,14 +17,21 @@
 #endif
 
 #include <PubSubClient.h>
+
+// Para usar DHT futuramente, altere USE_DHT para 1 e instale as bibliotecas.
+#define USE_DHT 0
+
+#if USE_DHT
 #include <DHT.h>
+#define DHT_TYPE DHT22 // Altere para DHT11 se necessario
+#endif
 
 // Wi-Fi
 const char* WIFI_SSID = "SEU_SSID";
 const char* WIFI_PASSWORD = "SUA_SENHA";
 
 // MQTT
-const char* MQTT_HOST = "192.168.0.10";
+const char* MQTT_HOST = "SEU_BROKER_IP";
 const uint16_t MQTT_PORT = 1883;
 
 // Identificacao
@@ -39,12 +46,12 @@ const char* TOPIC_ALERT = "cantrace/area-01/alert";
 const char* TOPIC_CMD_LED = "cantrace/area-01/command/led";
 const char* TOPIC_CMD_BUZZER = "cantrace/area-01/command/buzzer";
 
-// Pinos (ajuste conforme a placa)
+// Pinos (ESP32 como alvo principal)
 #if defined(ESP32)
 const int LED_PIN = 2;     // LED interno em muitas placas
-const int BUZZER_PIN = 15; // Ajuste conforme o buzzer
-const int DHT_PIN = 4;
-const int LDR_PIN = 34;    // ADC1
+const int BUZZER_PIN = 15; // Opcional
+const int DHT_PIN = 4;     // Opcional
+const int LDR_PIN = 34;    // Opcional (ADC1)
 const bool LED_ACTIVE_LOW = false;
 #else
 const int LED_PIN = LED_BUILTIN; // LED interno (ativo em nivel baixo)
@@ -54,13 +61,14 @@ const int LDR_PIN = A0;          // ADC
 const bool LED_ACTIVE_LOW = true;
 #endif
 
-#define DHT_TYPE DHT22 // Altere para DHT11 se necessario
+// Modo simulado padrao: sensores fisicos nao disponiveis no laboratorio.
+bool dhtEnabled = false;
+bool ldrEnabled = false;
+const bool BUZZER_ENABLED = false;
 
-// Ative ou desative sensores reais
-bool dhtEnabled = true;
-bool ldrEnabled = true;
-
+#if USE_DHT
 DHT dht(DHT_PIN, DHT_TYPE);
+#endif
 WiFiClient wifiClient;
 PubSubClient client(wifiClient);
 
@@ -77,6 +85,9 @@ void setLed(bool on) {
 }
 
 void setBuzzer(bool on) {
+  if (!BUZZER_ENABLED) {
+    return;
+  }
   digitalWrite(BUZZER_PIN, on ? HIGH : LOW);
 }
 
@@ -186,6 +197,10 @@ void onMqttMessage(char* topic, byte* payload, unsigned int length) {
   }
 
   if (String(topic) == TOPIC_CMD_BUZZER) {
+    if (!BUZZER_ENABLED) {
+      Serial.println("BUZZER: comando recebido (sem hardware).");
+      return;
+    }
     if (hasBeep) {
       setBuzzer(true);
       delay(200);
@@ -260,12 +275,23 @@ void setup() {
   randomSeed(micros());
 
   pinMode(LED_PIN, OUTPUT);
-  pinMode(BUZZER_PIN, OUTPUT);
   setLed(false);
-  setBuzzer(false);
+  if (BUZZER_ENABLED) {
+    pinMode(BUZZER_PIN, OUTPUT);
+    setBuzzer(false);
+  }
 
+#if USE_DHT
   if (dhtEnabled) {
     dht.begin();
+  }
+#endif
+
+  if (!dhtEnabled && !ldrEnabled) {
+    Serial.println("Modo simulado ativo (sem sensores fisicos no laboratorio).");
+  }
+  if (!BUZZER_ENABLED) {
+    Serial.println("Buzzer desativado (sem hardware).");
   }
 
   setupWiFi();
@@ -289,10 +315,12 @@ void loop() {
     float tempC = NAN;
     float humidity = NAN;
 
+#if USE_DHT
     if (dhtEnabled) {
       tempC = dht.readTemperature();
       humidity = dht.readHumidity();
     }
+#endif
 
     if (isnan(tempC) || isnan(humidity)) {
       simulated = true;

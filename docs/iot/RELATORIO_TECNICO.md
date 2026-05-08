@@ -4,7 +4,7 @@
 Relatorio Tecnico do Modulo CanTrace IoT Station.
 
 ## Resumo
-Este relatorio descreve a base tecnica do modulo IoT do projeto academico CanTrace. O objetivo e demonstrar monitoramento ambiental com dados ficticios, integracao via MQTT, visualizacao em Node-RED e evidencias para auditoria simulada, sem qualquer funcionalidade de cultivo, comercializacao ou prescricao.
+Este relatorio descreve a base tecnica do modulo IoT do projeto academico CanTrace. O objetivo e demonstrar monitoramento ambiental com dados simulados, integracao via MQTT, visualizacao em Node-RED e evidencias para auditoria simulada, sem qualquer funcionalidade de cultivo, comercializacao ou prescricao. Por indisponibilidade de sensores no laboratorio, o MVP da disciplina usa telemetria simulada no ESP32.
 
 ## Problema real
 Processos regulados exigem monitoramento ambiental e trilhas de evidencias tecnicas. Sem padronizacao, os registros podem ser incompletos, dificeis de auditar e vulneraveis a inconsistencias.
@@ -13,24 +13,22 @@ Processos regulados exigem monitoramento ambiental e trilhas de evidencias tecni
 Construir uma base funcional e demonstravel do modulo IoT para monitoramento ambiental com telemetria via MQTT e dashboard no Node-RED.
 
 ## Objetivos especificos
-- Coletar dados de temperatura, umidade e luminosidade (fisicos ou simulados).
+- Gerar dados simulados de temperatura, umidade e luminosidade no ESP32.
 - Publicar telemetria em topicos MQTT padronizados.
 - Receber comandos de atuadores via MQTT.
 - Exibir informacoes em um dashboard academico.
 - Registrar evidencias visuais e logs para a disciplina.
 
 ## Arquitetura da solucao
-Sensores conectados ao ESP32/NodeMCU publicam dados no broker Mosquitto. O Node-RED consome a telemetria e apresenta indicadores no dashboard. Comandos do dashboard retornam ao broker e sao assinados pelo microcontrolador para acionar LED e buzzer.
+O ESP32 publica telemetria simulada no broker Mosquitto. O Node-RED consome a telemetria e apresenta indicadores no dashboard. Comandos do dashboard retornam ao broker e sao assinados pelo ESP32 para acionar o LED interno e o buzzer opcional.
 
 ## Descricao dos sensores
-- DHT11 ou DHT22: temperatura e umidade relativa.
-- LDR: luminosidade (leitura analogica).
-- Valores simulados: fallback quando sensores nao estiverem conectados.
+- MVP sem sensores fisicos: valores simulados gerados no firmware.
+- Evolucao futura: DHT11/DHT22 (temperatura/umidade) e LDR (luminosidade).
 
 ## Descricao dos atuadores
-- LED: indicacao visual de comando remoto.
-- Buzzer: alerta sonoro simples.
-- Rele (opcional): demonstracao de acionamento em bancada.
+- LED interno do ESP32 (GPIO 2): indicacao visual de comando remoto.
+- Buzzer (opcional): alerta sonoro simples.
 
 ## Justificativa do uso de MQTT
 MQTT e leve, simples e adequado a telemetria de IoT, com baixo consumo de banda e suporte a publish/subscribe, ideal para demonstracao academica.
@@ -90,7 +88,7 @@ Comando:
 ```
 
 ## Funcionamento esperado
-O microcontrolador se conecta ao Wi-Fi, estabelece conexao com o broker MQTT e publica telemetria periodicamente. O Node-RED apresenta os dados no dashboard e permite o envio de comandos. O dispositivo assina os topicos de comando e aciona LED e buzzer conforme solicitado.
+O microcontrolador se conecta ao Wi-Fi, estabelece conexao com o broker MQTT e publica telemetria simulada periodicamente. O Node-RED apresenta os dados no dashboard e permite o envio de comandos. O dispositivo assina os topicos de comando e aciona o LED interno (e o buzzer opcional) conforme solicitado.
 
 ## Plano de prototipagem no Tinkercad
 - Simular a leitura de sensores e acionamento de atuadores.
@@ -98,15 +96,15 @@ O microcontrolador se conecta ao Wi-Fi, estabelece conexao com o broker MQTT e p
 - Capturar prints do circuito e da simulacao em execucao.
 
 ## Plano de montagem fisica
-- Montar ESP32/NodeMCU com DHT e LDR em protoboard.
-- Conectar LED e buzzer em pinos digitais.
-- Validar leituras reais e telemetria no broker local.
+- Montagem minima: ESP32 apenas com LED interno.
+- Opcional: adicionar DHT, LDR e buzzer em protoboard para evolucao futura.
+- Validar telemetria simulada no broker local.
 
 ## Plano de demonstracao ao vivo
-- Mostrar o circuito (Tinkercad ou fisico).
-- Exibir publicacao de telemetria via MQTT.
+- Mostrar o ESP32 e o LED interno.
+- Exibir publicacao de telemetria simulada via MQTT.
 - Mostrar dashboard no Node-RED com gauges e charts.
-- Enviar comandos pelo dashboard e observar atuadores.
+- Enviar comandos pelo dashboard e observar o LED.
 
 ## Evidencias visuais a inserir depois
 - Print do Tinkercad.
@@ -117,8 +115,8 @@ O microcontrolador se conecta ao Wi-Fi, estabelece conexao com o broker MQTT e p
 - Video curto da demonstracao (se houver).
 
 ## Riscos e plano B
-- Falta de sensores: usar valores simulados no firmware.
-- Falta de hardware: demonstrar em simulacao e Node-RED.
+- Indisponibilidade de sensores: manter telemetria simulada no ESP32.
+- Falta de hardware adicional: demonstrar com LED interno e Node-RED.
 - Instabilidade do broker: usar broker local e testes com mosquitto_pub/sub.
 
 ## Conclusao parcial

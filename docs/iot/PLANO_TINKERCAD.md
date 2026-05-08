@@ -1,29 +1,26 @@
 # Plano de Prototipagem no Tinkercad
 
 ## Objetivo da simulacao
-Validar a logica de leitura de sensores e acionamento de atuadores em um ambiente controlado, antes da montagem fisica.
+Validar a logica de entrada/saida e o acionamento de atuadores em um ambiente controlado, antes da demonstracao com ESP32.
 
 ## Componentes sugeridos para a simulacao
 - Microcontrolador compativel no Tinkercad.
-- Sensor DHT (ou equivalente de simulacao).
-- LDR + resistor.
 - LED + resistor.
-- Buzzer.
+- Buzzer (opcional).
 - Protoboard e jumpers.
 
 ## Descricao do circuito
-Ligacao do DHT em pino digital, LDR em entrada analogica com divisor de tensao, LED e buzzer em pinos digitais com resistores adequados.
+Ligacao de LED e buzzer em pinos digitais com resistores adequados. As entradas ambientais sao simuladas no codigo.
 
 ## Entradas
-- Temperatura e umidade (DHT).
-- Luminosidade (LDR).
+- Temperatura, umidade e luminosidade simuladas no codigo.
 
 ## Saidas
 - LED para indicacao visual.
-- Buzzer para alerta sonoro simples.
+- Buzzer para alerta sonoro simples (opcional).
 
 ## Logica simulada
-- Leitura periodica dos sensores.
+- Geracao de valores simulados.
 - Atualizacao de valores no Serial Monitor.
 - Acionamento de LED e buzzer por condicao simulada.
 
@@ -31,7 +28,7 @@ Ligacao do DHT em pino digital, LDR em entrada analogica com divisor de tensao, 
 O Tinkercad nao simula Wi-Fi/MQTT. A validacao de comunicacao deve ser demonstrada no hardware fisico ou em simulacao separada.
 
 ## Como explicar isso na apresentacao
-Informar que a simulacao valida a logica local e a parte MQTT sera demonstrada no hardware fisico e no Node-RED.
+Informar que a simulacao valida a logica local e a parte MQTT sera demonstrada no ESP32 real e no Node-RED.
 
 ## Checklist de prints
 - Circuito montado.

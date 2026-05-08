@@ -11,9 +11,11 @@ Este diretorio contem o flow inicial do dashboard academico do CanTrace IoT Stat
 ## Configurar o broker MQTT
 - Ajustar o node de broker para o IP/host do Mosquitto (ex.: 127.0.0.1:1883).
 - Garantir que os topicos estejam com o prefixo cantrace/area-01/.
+Para o ESP32, use o IPv4 do computador (ipconfig) no firmware; 127.0.0.1 vale apenas para o Node-RED local.
 
 ## Payloads e comandos
-- O flow espera JSON com campo value para telemetria.
+- O flow espera JSON com campo value para telemetria simulada.
+- O LED e o atuador principal; buzzer e opcional.
 - Comandos de LED e buzzer sao enviados em JSON com campo state.
 
 ## Testar recebimento de telemetria

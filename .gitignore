@@ -1,0 +1,81 @@
+# Java / Spring Boot
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+bin/
+out/
+target/
+
+# Maven
+.mvn/timing.properties
+
+# Gradle
+.gradle/
+build/
+
+# Node / Angular
+node_modules/
+dist/
+tmp/
+.cache/
+.angular/
+coverage/
+.nyc_output/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Docker
+docker-compose.override.yml
+**/.docker/
+docker-data/
+docker-volumes/
+
+# PostgreSQL local
+postgres-data/
+pgdata/
+db-data/
+postmaster.pid
+
+# Mosquitto
+mosquitto/data/
+mosquitto/log/
+mosquitto.db
+mosquitto.pid
+mosquitto.log
+
+# Node-RED
+.node-red/
+node-red/data/
+node-red/.config.runtime.json
+node-red/.sessions.json
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*.user
+*.suo
+*.ntvs*
+*.cache
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos temporarios
+*.tmp
+*.temp
+
+# Variaveis de ambiente
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log

@@ -1,0 +1,53 @@
+1778587444: Info: running mosquitto as user: mosquitto.
+1778587444: mosquitto version 2.1.2 starting
+1778587444: Config loaded from /mosquitto/config/mosquitto.conf.
+1778587444: Bridge support available.
+1778587444: Persistence support available.
+1778587444: TLS support available.
+1778587444: TLS-PSK support available.
+1778587444: Websockets support available.
+1778587444: Opening ipv4 listen socket on port 1883.
+1778587444: mosquitto version 2.1.2 running
+1778587516: New connection from 172.18.0.4:59514 on port 1883.
+1778587516: New client connected from 172.18.0.4:59514 as auto-B1B62FE0-2A08-73D3-E079-0DEE54E260A4 (p4, c1, k60).
+1778587540: New connection from 172.18.0.5:42736 on port 1883.
+1778587540: New client connected from 172.18.0.5:42736 as auto-991B7C09-59E5-E39A-DCF1-E3F84611F7C1 (p4, c1, k60).
+1778587540: Client auto-991B7C09-59E5-E39A-DCF1-E3F84611F7C1 [172.18.0.5:42736] disconnected.
+1778587545: New connection from 172.18.0.5:42746 on port 1883.
+1778587545: New client connected from 172.18.0.5:42746 as auto-148DD1D7-6A2C-2234-DD4C-40CD7B1B9EFB (p4, c1, k60).
+1778587545: Client auto-148DD1D7-6A2C-2234-DD4C-40CD7B1B9EFB [172.18.0.5:42746] disconnected.
+1778587554: New connection from 172.18.0.5:58750 on port 1883.
+1778587554: New client connected from 172.18.0.5:58750 as auto-5261CE9E-7E74-FAA6-5575-39D6FBA11C8E (p4, c1, k60).
+1778587554: Client auto-5261CE9E-7E74-FAA6-5575-39D6FBA11C8E [172.18.0.5:58750] disconnected.
+1778587612: New connection from 172.18.0.5:40232 on port 1883.
+1778587612: New client connected from 172.18.0.5:40232 as auto-D7EAC868-39C1-192A-3B7E-C8025BDF044A (p4, c1, k60).
+1778587612: Client auto-D7EAC868-39C1-192A-3B7E-C8025BDF044A [172.18.0.5:40232] disconnected.
+1778587615: New connection from 172.18.0.5:40248 on port 1883.
+1778587615: New client connected from 172.18.0.5:40248 as auto-AB812A80-9FD1-4F54-7AC6-BE6A67256B79 (p4, c1, k60).
+1778587615: Client auto-AB812A80-9FD1-4F54-7AC6-BE6A67256B79 [172.18.0.5:40248] disconnected.
+1778587619: New connection from 172.18.0.5:51010 on port 1883.
+1778587619: New client connected from 172.18.0.5:51010 as auto-44E45567-2357-7294-1157-2DF8DB33D40C (p4, c1, k60).
+1778587619: Client auto-44E45567-2357-7294-1157-2DF8DB33D40C [172.18.0.5:51010] disconnected.
+1778587829: New connection from 172.18.0.3:58382 on port 1883.
+1778587829: New client connected from 172.18.0.3:58382 as cantrace-nodered (p4, c1, k60).
+1778587838: New connection from 172.18.0.5:46284 on port 1883.
+1778587838: New client connected from 172.18.0.5:46284 as auto-F13A953F-1E81-C502-C20A-0A085FF4CEE9 (p4, c1, k60).
+1778587838: Client auto-F13A953F-1E81-C502-C20A-0A085FF4CEE9 [172.18.0.5:46284] disconnected.
+1778588019: New connection from 172.18.0.5:41646 on port 1883.
+1778588019: New client connected from 172.18.0.5:41646 as auto-417EF130-3F02-F00D-95E6-A89A43D20181 (p4, c1, k60).
+1778588019: Client auto-417EF130-3F02-F00D-95E6-A89A43D20181 [172.18.0.5:41646] disconnected.
+1778588031: New connection from 172.18.0.5:51378 on port 1883.
+1778588031: New client connected from 172.18.0.5:51378 as auto-21A84797-9A04-FC0F-6009-E53E207D88F5 (p4, c1, k60).
+1778588031: Client auto-21A84797-9A04-FC0F-6009-E53E207D88F5 [172.18.0.5:51378] disconnected.
+1778588031: New connection from 172.18.0.5:51392 on port 1883.
+1778588031: New client connected from 172.18.0.5:51392 as auto-F37CFB95-28DF-6047-B847-9CDFA60F023A (p4, c1, k60).
+1778588031: Client auto-F37CFB95-28DF-6047-B847-9CDFA60F023A [172.18.0.5:51392] disconnected.
+1778588032: New connection from 172.18.0.5:51406 on port 1883.
+1778588032: New client connected from 172.18.0.5:51406 as auto-AEAD876F-D00B-6809-8986-5274E61CAA1E (p4, c1, k60).
+1778588032: Client auto-AEAD876F-D00B-6809-8986-5274E61CAA1E [172.18.0.5:51406] disconnected.
+1778588037: New connection from 172.18.0.5:58556 on port 1883.
+1778588037: New client connected from 172.18.0.5:58556 as auto-1804E321-297F-0CE4-E8B1-EB9CAD00170A (p4, c1, k60).
+1778588053: Client auto-1804E321-297F-0CE4-E8B1-EB9CAD00170A [172.18.0.5:58556] disconnected.
+1778588165: Client auto-B1B62FE0-2A08-73D3-E079-0DEE54E260A4 [172.18.0.4:59514] disconnected.
+1778588190: New connection from 172.18.0.4:38314 on port 1883.
+1778588190: New client connected from 172.18.0.4:38314 as auto-FC93AB35-9C73-818D-D92B-ABAE99992B9B (p4, c1, k60).

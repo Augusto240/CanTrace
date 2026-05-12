@@ -10,7 +10,7 @@
     "id": "mqtt_broker",
     "type": "mqtt-broker",
     "name": "Mosquitto Local",
-    "broker": "127.0.0.1",
+    "broker": "cantrace-mosquitto",
     "port": "1883",
     "clientid": "cantrace-nodered",
     "usetls": false,

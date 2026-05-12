@@ -1,0 +1,4 @@
+NAMES                PORTS                                         STATUS
+sweet_colden         1883/tcp                                      Up 10 minutes
+cantrace-node-red    0.0.0.0:1880->1880/tcp, [::]:1880->1880/tcp   Up 21 minutes (healthy)
+cantrace-mosquitto   0.0.0.0:1883->1883/tcp, [::]:1883->1883/tcp   Up 22 minutes

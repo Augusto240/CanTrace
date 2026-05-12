@@ -1,3 +1,7 @@
 cantrace/area-01/command/led {"state":"ON","source":"dashboard"}
 cantrace/area-01/command/led {"state":"OFF","source":"dashboard"}
 cantrace/area-01/command/led {"state":"ON","source":"dashboard"}
+cantrace/area-01/command/buzzer {"state":"ON","action":"BEEP","source":"dashboard"}
+cantrace/area-01/command/buzzer {"state":"ON","action":"BEEP","source":"dashboard"}
+cantrace/area-01/command/led {"state":"OFF","source":"dashboard"}
+cantrace/area-01/command/led {"state":"ON","source":"dashboard"}

@@ -1,0 +1,110 @@
+12 May 14:21:27 - [info] 
+
+Welcome to Node-RED
+===================
+
+12 May 14:21:27 - [info] Node-RED version: v4.1.10
+12 May 14:21:27 - [info] Node.js  version: v20.20.2
+12 May 14:21:27 - [info] Linux 6.8.0-1044-azure x64 LE
+12 May 14:21:27 - [info] Loading palette nodes
+12 May 14:21:28 - [info] Settings file  : /data/settings.js
+12 May 14:21:28 - [info] Context store  : 'default' [module=memory]
+12 May 14:21:28 - [info] User directory : /data
+12 May 14:21:28 - [warn] Projects disabled : editorTheme.projects.enabled=false
+12 May 14:21:28 - [info] Flows file     : /data/flows.json
+12 May 14:21:28 - [warn] 
+
+---------------------------------------------------------------------
+Your flow credentials file is encrypted using a system-generated key.
+
+If the system-generated key is lost for any reason, your credentials
+file will not be recoverable, you will have to delete it and re-enter
+your credentials.
+
+You should set your own key using the 'credentialSecret' option in
+your settings file. Node-RED will then re-encrypt your credentials
+file using your chosen key the next time you deploy a change.
+---------------------------------------------------------------------
+
+12 May 14:21:28 - [info] Server now running at http://127.0.0.1:1880/
+12 May 14:21:28 - [warn] Encrypted credentials not found
+12 May 14:21:28 - [info] Starting flows
+12 May 14:21:28 - [info] Started flows
+12 May 14:23:04 - [info] Stopping flows
+12 May 14:23:04 - [info] Stopped flows
+12 May 14:23:06 - [info] 
+
+Welcome to Node-RED
+===================
+
+12 May 14:23:06 - [info] Node-RED version: v4.1.10
+12 May 14:23:06 - [info] Node.js  version: v20.20.2
+12 May 14:23:06 - [info] Linux 6.8.0-1044-azure x64 LE
+12 May 14:23:06 - [info] Loading palette nodes
+12 May 14:23:07 - [info] Dashboard version 3.6.6 started at /ui
+12 May 14:23:07 - [info] Settings file  : /data/settings.js
+12 May 14:23:07 - [info] Context store  : 'default' [module=memory]
+12 May 14:23:07 - [info] User directory : /data
+12 May 14:23:07 - [warn] Projects disabled : editorTheme.projects.enabled=false
+12 May 14:23:07 - [info] Flows file     : /data/flows.json
+12 May 14:23:07 - [warn] 
+
+---------------------------------------------------------------------
+Your flow credentials file is encrypted using a system-generated key.
+
+If the system-generated key is lost for any reason, your credentials
+file will not be recoverable, you will have to delete it and re-enter
+your credentials.
+
+You should set your own key using the 'credentialSecret' option in
+your settings file. Node-RED will then re-encrypt your credentials
+file using your chosen key the next time you deploy a change.
+---------------------------------------------------------------------
+
+12 May 14:23:07 - [warn] Encrypted credentials not found
+12 May 14:23:07 - [info] Server now running at http://127.0.0.1:1880/
+12 May 14:23:07 - [info] Starting flows
+12 May 14:23:07 - [info] Started flows
+12 May 14:23:19 - [info] Stopping flows
+12 May 14:23:19 - [info] Stopped flows
+12 May 14:23:20 - [info] 
+
+Welcome to Node-RED
+===================
+
+12 May 14:23:20 - [info] Node-RED version: v4.1.10
+12 May 14:23:20 - [info] Node.js  version: v20.20.2
+12 May 14:23:20 - [info] Linux 6.8.0-1044-azure x64 LE
+12 May 14:23:20 - [info] Loading palette nodes
+12 May 14:23:20 - [info] Dashboard version 3.6.6 started at /ui
+12 May 14:23:21 - [info] Settings file  : /data/settings.js
+12 May 14:23:21 - [info] Context store  : 'default' [module=memory]
+12 May 14:23:21 - [info] User directory : /data
+12 May 14:23:21 - [warn] Projects disabled : editorTheme.projects.enabled=false
+12 May 14:23:21 - [info] Flows file     : /data/flows.json
+12 May 14:23:21 - [warn] 
+
+---------------------------------------------------------------------
+Your flow credentials file is encrypted using a system-generated key.
+
+If the system-generated key is lost for any reason, your credentials
+file will not be recoverable, you will have to delete it and re-enter
+your credentials.
+
+You should set your own key using the 'credentialSecret' option in
+your settings file. Node-RED will then re-encrypt your credentials
+file using your chosen key the next time you deploy a change.
+---------------------------------------------------------------------
+
+12 May 14:23:21 - [warn] Encrypted credentials not found
+12 May 14:23:21 - [info] Server now running at http://127.0.0.1:1880/
+12 May 14:23:21 - [info] Starting flows
+12 May 14:23:21 - [info] Started flows
+12 May 14:23:21 - [info] [mqtt-broker:Mosquitto Local] Connected to broker: cantrace-nodered@mqtt://cantrace-mosquitto:1883
+12 May 14:24:45 - [info] Stopping flows
+12 May 14:24:45 - [info] [mqtt-broker:Mosquitto Local] Disconnected from broker: cantrace-nodered@mqtt://cantrace-mosquitto:1883
+12 May 14:24:45 - [info] Stopped flows
+12 May 14:24:45 - [info] Updated flows
+12 May 14:24:45 - [info] Starting flows
+12 May 14:24:45 - [info] Started flows
+12 May 14:24:45 - [info] [mqtt-broker:Mosquitto Local] Connected to broker: cantrace-nodered@mqtt://cantrace-mosquitto:1883

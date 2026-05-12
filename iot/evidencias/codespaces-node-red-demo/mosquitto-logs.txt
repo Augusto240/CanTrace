@@ -1,0 +1,62 @@
+1778595657: mosquitto version 2.1.2 starting
+1778595657: Config loaded from /mosquitto/config/mosquitto.conf.
+1778595657: Bridge support available.
+1778595657: Persistence support available.
+1778595657: TLS support available.
+1778595657: TLS-PSK support available.
+1778595657: Websockets support available.
+1778595657: Info: running mosquitto as user: mosquitto.
+1778595657: Opening ipv4 listen socket on port 1883.
+1778595657: mosquitto version 2.1.2 running
+1778595670: New connection from 172.18.0.1:48200 on port 1883.
+1778595670: Protocol error from 172.18.0.1:48200: First packet not CONNECT (47).
+1778595670: Client 172.18.0.1 [172.18.0.1:48200] disconnected: protocol error.
+1778595670: New connection from 172.18.0.1:48202 on port 1883.
+1778595670: Protocol error from 172.18.0.1:48202: First packet not CONNECT (47).
+1778595670: Client 172.18.0.1 [172.18.0.1:48202] disconnected: protocol error.
+1778595670: New connection from 172.18.0.1:48218 on port 1883.
+1778595670: Protocol error from 172.18.0.1:48218: First packet not CONNECT (47).
+1778595670: Client 172.18.0.1 [172.18.0.1:48218] disconnected: protocol error.
+1778595670: New connection from 172.18.0.1:48228 on port 1883.
+1778595670: Protocol error from 172.18.0.1:48228: First packet not CONNECT (47).
+1778595670: Client 172.18.0.1 [172.18.0.1:48228] disconnected: protocol error.
+1778595673: New connection from 172.18.0.1:43454 on port 1883.
+1778595673: Protocol error from 172.18.0.1:43454: First packet not CONNECT (47).
+1778595673: Client 172.18.0.1 [172.18.0.1:43454] disconnected: protocol error.
+1778595673: New connection from 172.18.0.1:43468 on port 1883.
+1778595673: Protocol error from 172.18.0.1:43468: First packet not CONNECT (47).
+1778595673: Client 172.18.0.1 [172.18.0.1:43468] disconnected: protocol error.
+1778595673: New connection from 172.18.0.1:43482 on port 1883.
+1778595673: Protocol error from 172.18.0.1:43482: First packet not CONNECT (47).
+1778595673: Client 172.18.0.1 [172.18.0.1:43482] disconnected: protocol error.
+1778595673: New connection from 172.18.0.1:43498 on port 1883.
+1778595673: Protocol error from 172.18.0.1:43498: First packet not CONNECT (47).
+1778595673: Client 172.18.0.1 [172.18.0.1:43498] disconnected: protocol error.
+1778595694: New connection from 172.18.0.1:39708 on port 1883.
+1778595694: Protocol error from 172.18.0.1:39708: First packet not CONNECT (47).
+1778595694: Client 172.18.0.1 [172.18.0.1:39708] disconnected: protocol error.
+1778595694: New connection from 172.18.0.1:39722 on port 1883.
+1778595694: Protocol error from 172.18.0.1:39722: First packet not CONNECT (47).
+1778595694: Client 172.18.0.1 [172.18.0.1:39722] disconnected: protocol error.
+1778595694: New connection from 172.18.0.1:39734 on port 1883.
+1778595694: Protocol error from 172.18.0.1:39734: First packet not CONNECT (47).
+1778595694: Client 172.18.0.1 [172.18.0.1:39734] disconnected: protocol error.
+1778595694: New connection from 172.18.0.1:39742 on port 1883.
+1778595694: Protocol error from 172.18.0.1:39742: First packet not CONNECT (47).
+1778595694: Client 172.18.0.1 [172.18.0.1:39742] disconnected: protocol error.
+1778595801: New connection from 172.18.0.3:41244 on port 1883.
+1778595801: New client connected from 172.18.0.3:41244 as cantrace-nodered (p4, c1, k60).
+1778595873: New connection from 172.18.0.4:60042 on port 1883.
+1778595873: New client connected from 172.18.0.4:60042 as auto-70950B52-97A3-B8B9-F4F7-1368681F581B (p4, c1, k60).
+1778595873: Client auto-70950B52-97A3-B8B9-F4F7-1368681F581B [172.18.0.4:60042] disconnected.
+1778595874: New connection from 172.18.0.4:60056 on port 1883.
+1778595874: New client connected from 172.18.0.4:60056 as auto-1B765AE8-5FC2-5833-5BF7-87128D721CF5 (p4, c1, k60).
+1778595874: Client auto-1B765AE8-5FC2-5833-5BF7-87128D721CF5 [172.18.0.4:60056] disconnected.
+1778595874: New connection from 172.18.0.4:60062 on port 1883.
+1778595874: New client connected from 172.18.0.4:60062 as auto-186A1646-07D1-2F03-3C17-1CAF21B7171B (p4, c1, k60).
+1778595874: Client auto-186A1646-07D1-2F03-3C17-1CAF21B7171B [172.18.0.4:60062] disconnected.
+1778595885: Client cantrace-nodered [172.18.0.3:41244] disconnected.
+1778595885: New connection from 172.18.0.3:34032 on port 1883.
+1778595885: New client connected from 172.18.0.3:34032 as cantrace-nodered (p4, c1, k60).
+1778595915: New connection from 172.18.0.4:58750 on port 1883.
+1778595915: New client connected from 172.18.0.4:58750 as auto-984B454C-F5CE-7CF6-34D4-CE5E6589FD97 (p4, c1, k60).

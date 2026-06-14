@@ -38,6 +38,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/db/ping").permitAll()
                 .requestMatchers("/api/v1/lotes/**").authenticated()
                 .requestMatchers("/api/v1/auditoria/**").hasRole("ADMIN")
+                .requestMatchers("/api/v1/dispositivos/**").authenticated()
                 .anyRequest().authenticated()
             )
             .httpBasic(httpBasic -> {});

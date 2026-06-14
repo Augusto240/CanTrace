@@ -21,6 +21,7 @@ import br.edu.cantrace.dispositivos.events.DispositivoCadastradoEvent;
 import br.edu.cantrace.dispositivos.events.DispositivoRemovidoEvent;
 import br.edu.cantrace.dispositivos.events.DispositivoStatusAlteradoEvent;
 import br.edu.cantrace.dispositivos.events.DispositivoAtualizadoEvent;
+import br.edu.cantrace.telemetria.TelemetriaService;
 
 @WebMvcTest(DispositivoController.class)
 @AutoConfigureMockMvc(addFilters = false)
@@ -31,6 +32,9 @@ class DispositivoControllerTest {
 
     @MockBean
     private DispositivoService dispositivoService;
+
+    @MockBean
+    private TelemetriaService telemetriaService;
 
     private DispositivoIoT dispositivo;
     private DispositivoRequest request;

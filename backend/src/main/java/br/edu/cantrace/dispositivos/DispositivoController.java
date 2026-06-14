@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.edu.cantrace.shared.ErrorResponse;
+import br.edu.cantrace.telemetria.TelemetriaResponse;
+import br.edu.cantrace.telemetria.TelemetriaService;
 import jakarta.validation.Valid;
 
 @RestController
@@ -25,9 +28,11 @@ import jakarta.validation.Valid;
 public class DispositivoController {
 
     private final DispositivoService dispositivoService;
+    private final TelemetriaService telemetriaService;
 
-    public DispositivoController(DispositivoService dispositivoService) {
+    public DispositivoController(DispositivoService dispositivoService, TelemetriaService telemetriaService) {
         this.dispositivoService = dispositivoService;
+        this.telemetriaService = telemetriaService;
     }
 
     @PostMapping
@@ -94,5 +99,23 @@ public class DispositivoController {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/{id}/ultima-leitura")
+    public ResponseEntity<?> ultimaLeitura(@PathVariable UUID id) {
+        return telemetriaService.buscarUltimaLeitura(id)
+            .map(leitura -> ResponseEntity.ok((Object) TelemetriaResponse.fromEntity(leitura)))
+            .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/{id}/leituras")
+    public ResponseEntity<List<TelemetriaResponse>> leituras(
+            @PathVariable UUID id,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size) {
+        List<TelemetriaResponse> leituras = telemetriaService.buscarHistorico(id, page, size).stream()
+            .map(TelemetriaResponse::fromEntity)
+            .collect(Collectors.toList());
+        return ResponseEntity.ok(leituras);
     }
 }

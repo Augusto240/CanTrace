@@ -39,6 +39,8 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/lotes/**").authenticated()
                 .requestMatchers("/api/v1/auditoria/**").hasRole("ADMIN")
                 .requestMatchers("/api/v1/dispositivos/**").authenticated()
+                .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/v1/telemetria/**").hasRole("ADMIN")
+                .requestMatchers("/api/v1/telemetria/**").authenticated()
                 .anyRequest().authenticated()
             )
             .httpBasic(httpBasic -> {});

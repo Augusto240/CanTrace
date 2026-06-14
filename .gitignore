@@ -80,5 +80,16 @@ Thumbs.db
 logs/
 *.log
 
-# SDD local (não versionado)
+# SDD local (nao versionado)
 docs/local-sdd/
+
+# OpenCode / Claude-Mem
+.opencode/
+.claude-mem/
+*.opencode.json
+
+# Superpowers / GSD
+.cache/opencode/
+~/.config/opencode/skills/
+~/.config/opencode/command/
+~/.config/opencode/agents/

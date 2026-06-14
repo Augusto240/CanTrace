@@ -16,9 +16,9 @@ public interface AuditRepository extends JpaRepository<AuditLog, UUID>, JpaSpeci
 
     List<AuditLog> findByEntidade(String entidade);
 
-    @Query("SELECT a.entidade, COUNT(a) FROM AuditLog a GROUP BY a.entidade")
-    Map<String, Long> countByEntidade();
+    @Query(value = "SELECT entidade, COUNT(*) as cnt FROM registros_auditoria GROUP BY entidade", nativeQuery = true)
+    List<Object[]> countByEntidadeRaw();
 
-    @Query("SELECT a.acao, COUNT(a) FROM AuditLog a GROUP BY a.acao")
-    Map<String, Long> countByAcao();
+    @Query(value = "SELECT acao, COUNT(*) as cnt FROM registros_auditoria GROUP BY acao", nativeQuery = true)
+    List<Object[]> countByAcaoRaw();
 }

@@ -80,8 +80,10 @@ class AuditServiceTest {
     @Test
     void deveRetornarEstatisticas() {
         when(auditRepository.count()).thenReturn(10L);
-        when(auditRepository.countByEntidade()).thenReturn(Map.of("Lote", 7L, "Documento", 3L));
-        when(auditRepository.countByAcao()).thenReturn(Map.of("CREATE", 5L, "UPDATE", 3L, "DELETE", 2L));
+        when(auditRepository.countByEntidadeRaw()).thenReturn(List.of(
+            new Object[]{"Lote", 7L}, new Object[]{"Documento", 3L}));
+        when(auditRepository.countByAcaoRaw()).thenReturn(List.of(
+            new Object[]{"CREATE", 5L}, new Object[]{"UPDATE", 3L}, new Object[]{"DELETE", 2L}));
 
         AuditStats stats = auditService.getEstatisticas();
 

@@ -38,8 +38,14 @@ public class AuditService {
 
     public AuditStats getEstatisticas() {
         long total = auditRepository.count();
-        Map<String, Long> porEntidade = auditRepository.countByEntidade();
-        Map<String, Long> porAcao = auditRepository.countByAcao();
+        Map<String, Long> porEntidade = auditRepository.countByEntidadeRaw().stream()
+            .collect(java.util.stream.Collectors.toMap(
+                row -> (String) row[0],
+                row -> (Long) row[1]));
+        Map<String, Long> porAcao = auditRepository.countByAcaoRaw().stream()
+            .collect(java.util.stream.Collectors.toMap(
+                row -> (String) row[0],
+                row -> (Long) row[1]));
         return new AuditStats(total, porEntidade, porAcao);
     }
 

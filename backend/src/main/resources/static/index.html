@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CanTrace - Demo PostgreSQL</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Inter, Arial, sans-serif;
+      background: #f4f7f4;
+      color: #17251b;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+
+    main {
+      width: min(880px, calc(100% - 32px));
+      background: #ffffff;
+      border: 1px solid #dce7de;
+      border-radius: 24px;
+      box-shadow: 0 24px 70px rgba(23, 37, 27, 0.12);
+      padding: 32px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: #2f7d46;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1;
+    }
+
+    .summary {
+      max-width: 680px;
+      margin: 16px 0 28px;
+      color: #526057;
+      font-size: 1.08rem;
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      background: #2f7d46;
+      color: white;
+      cursor: pointer;
+      font-weight: 700;
+      padding: 14px 22px;
+    }
+
+    button:disabled {
+      cursor: wait;
+      opacity: 0.65;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .card {
+      border-radius: 18px;
+      background: #f7faf7;
+      border: 1px solid #dce7de;
+      padding: 18px;
+    }
+
+    .label {
+      margin: 0 0 8px;
+      color: #6b786f;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .value {
+      margin: 0;
+      overflow-wrap: anywhere;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .status-ok {
+      color: #1c8f43;
+    }
+
+    .status-error {
+      color: #b42318;
+    }
+
+    pre {
+      overflow-x: auto;
+      margin: 24px 0 0;
+      border-radius: 16px;
+      background: #17251b;
+      color: #d9f5df;
+      padding: 18px;
+    }
+
+    @media (max-width: 680px) {
+      main {
+        padding: 24px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">CanTrace MVP</p>
+    <h1>API conectada ao PostgreSQL</h1>
+    <p class="summary">
+      Esta tela chama <strong>/api/db/ping</strong> e exibe dados retornados por uma consulta SQL real no PostgreSQL.
+    </p>
+    <button id="refreshButton" type="button">Consultar banco agora</button>
+
+    <section class="grid" aria-label="Resultado da API">
+      <article class="card">
+        <p class="label">Status</p>
+        <p class="value" id="status">Aguardando consulta</p>
+      </article>
+      <article class="card">
+        <p class="label">Banco</p>
+        <p class="value" id="database">-</p>
+      </article>
+      <article class="card">
+        <p class="label">Usuario PostgreSQL</p>
+        <p class="value" id="databaseUser">-</p>
+      </article>
+      <article class="card">
+        <p class="label">Horario do banco</p>
+        <p class="value" id="databaseTime">-</p>
+      </article>
+    </section>
+
+    <pre id="rawResponse">Clique no botao para consultar a API.</pre>
+  </main>
+
+  <script>
+    const button = document.querySelector('#refreshButton');
+    const statusEl = document.querySelector('#status');
+    const databaseEl = document.querySelector('#database');
+    const databaseUserEl = document.querySelector('#databaseUser');
+    const databaseTimeEl = document.querySelector('#databaseTime');
+    const rawResponseEl = document.querySelector('#rawResponse');
+
+    async function loadDatabasePing() {
+      button.disabled = true;
+      statusEl.textContent = 'Consultando...';
+      statusEl.className = 'value';
+
+      try {
+        const response = await fetch('/api/db/ping');
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        const data = await response.json();
+        statusEl.textContent = data.status;
+        statusEl.className = 'value status-ok';
+        databaseEl.textContent = data.database;
+        databaseUserEl.textContent = data.databaseUser;
+        databaseTimeEl.textContent = data.databaseTime;
+        rawResponseEl.textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        statusEl.textContent = 'erro';
+        statusEl.className = 'value status-error';
+        databaseEl.textContent = '-';
+        databaseUserEl.textContent = '-';
+        databaseTimeEl.textContent = '-';
+        rawResponseEl.textContent = `Falha ao consultar /api/db/ping: ${error.message}`;
+      } finally {
+        button.disabled = false;
+      }
+    }
+
+    button.addEventListener('click', loadDatabasePing);
+    loadDatabasePing();
+  </script>
+</body>
+</html>

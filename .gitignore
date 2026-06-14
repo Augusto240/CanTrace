@@ -79,3 +79,6 @@ Thumbs.db
 # Logs
 logs/
 *.log
+
+# SDD local (não versionado)
+docs/local-sdd/

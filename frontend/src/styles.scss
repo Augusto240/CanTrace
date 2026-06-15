@@ -1,3 +1,6 @@
+@use 'styles/tokens' as *;
+@use 'styles/animations';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,4 +11,29 @@ body {
   @apply bg-bg-primary text-text-primary font-inter;
   margin: 0;
   padding: 0;
+}
+
+// Focus indicators for accessibility
+*:focus-visible {
+  outline: 2px solid $accent;
+  outline-offset: 2px;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-primary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $border;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $border-hover;
 }

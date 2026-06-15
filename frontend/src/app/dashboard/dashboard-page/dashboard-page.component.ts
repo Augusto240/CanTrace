@@ -34,12 +34,12 @@ import { TimelineEventosWidgetComponent } from '../timeline-eventos-widget/timel
       </div>
 
       <div class="row-2">
-        <app-eventos-mqtt-widget [events]="mqttEvents"></app-eventos-mqtt-widget>
+        <app-eventos-mqtt-widget></app-eventos-mqtt-widget>
         <app-mapa-operacional-widget></app-mapa-operacional-widget>
       </div>
 
       <div class="row-3">
-        <app-timeline-eventos-widget [events]="timelineEvents"></app-timeline-eventos-widget>
+        <app-timeline-eventos-widget></app-timeline-eventos-widget>
       </div>
     </div>
     <div class="loading-state" *ngIf="loading">

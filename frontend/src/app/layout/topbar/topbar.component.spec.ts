@@ -26,6 +26,13 @@ describe('TopbarComponent', () => {
 
   it('should show MQTT status', () => {
     const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.mqtt-status')?.textContent).toContain('MQTT Desconectado');
+  });
+
+  it('should show connected MQTT status', () => {
+    fixture.componentRef.setInput('mqttStatus', 'connected');
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.mqtt-status')?.textContent).toContain('MQTT Conectado');
   });
 });

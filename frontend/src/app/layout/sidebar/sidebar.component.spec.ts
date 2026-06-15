@@ -26,9 +26,9 @@ describe('SidebarComponent', () => {
     expect(compiled.querySelector('.logo-text')?.textContent).toContain('CANTRACE');
   });
 
-  it('should have 5 navigation items', () => {
+  it('should have 4 navigation items for non-admin user', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const navItems = compiled.querySelectorAll('.nav-item');
-    expect(navItems.length).toBe(5);
+    expect(navItems.length).toBe(4);
   });
 });

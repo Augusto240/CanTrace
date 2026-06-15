@@ -4,8 +4,9 @@
   <div class="content-area">
     <app-topbar 
       [title]="title" 
-      [mqttConnected]="mqttConnected"
-      [lastUpdate]="lastUpdate">
+      [mqttStatus]="mqttStatus"
+      [lastUpdate]="lastUpdate"
+      (refresh)="onRefresh()">
     </app-topbar>
     
     <main class="content">

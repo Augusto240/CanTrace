@@ -43,6 +43,7 @@ public class SecurityConfig {
                 .requestMatchers("/api/v1/telemetria/**").authenticated()
                 .requestMatchers(org.springframework.http.HttpMethod.PUT, "/api/v1/alertas/**").hasRole("ADMIN")
                 .requestMatchers("/api/v1/alertas/**").authenticated()
+                .requestMatchers("/api/v1/dashboard").authenticated()
                 .anyRequest().authenticated()
             )
             .httpBasic(httpBasic -> {});

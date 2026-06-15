@@ -5,9 +5,9 @@
   </div>
   
   <div class="right">
-    <div class="mqtt-status" [class.connected]="mqttConnected">
+    <div class="mqtt-status" [class.connected]="mqttStatus === 'connected'" [class.reconnecting]="mqttStatus === 'reconnecting'">
       <span class="status-dot"></span>
-      <span>{{ mqttConnected ? 'MQTT Conectado' : 'MQTT Desconectado' }}</span>
+      <span>{{ mqttStatus === 'connected' ? 'MQTT Conectado' : mqttStatus === 'reconnecting' ? 'Reconectando...' : 'MQTT Desconectado' }}</span>
     </div>
     
     <button class="refresh-btn" (click)="onRefresh()" aria-label="Atualizar dados">

@@ -129,3 +129,17 @@
   color: #8B949E;
   font-size: 10px;
 }
+
+.logout-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(255,82,82,0.1);
+  }
+}

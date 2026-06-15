@@ -82,7 +82,7 @@ logs/
 
 # SDD local (nao versionado)
 docs/local-sdd/
-
+docs/superpowers 
 # OpenCode / Claude-Mem
 .opencode/
 .claude-mem/
@@ -93,3 +93,5 @@ docs/local-sdd/
 ~/.config/opencode/skills/
 ~/.config/opencode/command/
 ~/.config/opencode/agents/
+
+.superpowers/

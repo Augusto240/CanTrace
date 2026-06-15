@@ -24,4 +24,15 @@ public interface TelemetriaRepository extends JpaRepository<LeituraAmbiental, UU
         @Param("inicio") Instant inicio,
         @Param("fim") Instant fim,
         Pageable pageable);
+
+    long countByTimestampBetween(Instant inicio, Instant fim);
+
+    @Query("SELECT AVG(l.temperatura) FROM LeituraAmbiental l WHERE l.timestamp BETWEEN :inicio AND :fim")
+    Double avgTemperaturaByTimestampBetween(@Param("inicio") Instant inicio, @Param("fim") Instant fim);
+
+    @Query("SELECT AVG(l.umidade) FROM LeituraAmbiental l WHERE l.timestamp BETWEEN :inicio AND :fim")
+    Double avgUmidadeByTimestampBetween(@Param("inicio") Instant inicio, @Param("fim") Instant fim);
+
+    @Query("SELECT AVG(l.luminosidade) FROM LeituraAmbiental l WHERE l.timestamp BETWEEN :inicio AND :fim")
+    Double avgLuminosidadeByTimestampBetween(@Param("inicio") Instant inicio, @Param("fim") Instant fim);
 }

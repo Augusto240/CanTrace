@@ -21,4 +21,6 @@ public interface AuditRepository extends JpaRepository<AuditLog, UUID>, JpaSpeci
 
     @Query(value = "SELECT acao, COUNT(*) as cnt FROM registros_auditoria GROUP BY acao", nativeQuery = true)
     List<Object[]> countByAcaoRaw();
+
+    long count();
 }

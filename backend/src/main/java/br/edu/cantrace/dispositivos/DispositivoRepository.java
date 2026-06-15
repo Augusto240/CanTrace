@@ -9,4 +9,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 public interface DispositivoRepository extends JpaRepository<DispositivoIoT, UUID>, JpaSpecificationExecutor<DispositivoIoT> {
     Optional<DispositivoIoT> findByDeviceCode(String deviceCode);
     boolean existsByDeviceCode(String deviceCode);
+    int countByStatus(DispositivoStatus status);
 }

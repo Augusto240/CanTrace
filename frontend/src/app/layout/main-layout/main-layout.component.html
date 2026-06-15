@@ -1,0 +1,15 @@
+<div class="main-layout">
+  <app-sidebar></app-sidebar>
+  
+  <div class="content-area">
+    <app-topbar 
+      [title]="title" 
+      [mqttConnected]="mqttConnected"
+      [lastUpdate]="lastUpdate">
+    </app-topbar>
+    
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

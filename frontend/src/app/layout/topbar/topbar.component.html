@@ -1,0 +1,17 @@
+<header class="topbar">
+  <div class="left">
+    <h1 class="title">{{ title }}</h1>
+    <span class="last-update">Última atualização: {{ lastUpdate | date:'HH:mm:ss' }}</span>
+  </div>
+  
+  <div class="right">
+    <div class="mqtt-status" [class.connected]="mqttConnected">
+      <span class="status-dot"></span>
+      <span>{{ mqttConnected ? 'MQTT Conectado' : 'MQTT Desconectado' }}</span>
+    </div>
+    
+    <button class="refresh-btn" (click)="onRefresh()" aria-label="Atualizar dados">
+      🔄 Atualizar
+    </button>
+  </div>
+</header>

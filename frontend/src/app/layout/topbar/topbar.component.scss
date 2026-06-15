@@ -1,0 +1,77 @@
+.topbar {
+  height: 56px;
+  border-bottom: 1px solid #1B2838;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: #0A1628;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: #E6EDF3;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.last-update {
+  color: #8B949E;
+  font-size: 11px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mqtt-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #8B949E;
+
+  &.connected {
+    color: #00E676;
+
+    .status-dot {
+      background: #00E676;
+      animation: pulse 2s infinite;
+    }
+  }
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8B949E;
+}
+
+.refresh-btn {
+  background: transparent;
+  border: 1px solid #30363D;
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: #8B949E;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #00E676;
+    color: #00E676;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

@@ -1,0 +1,28 @@
+<aside class="sidebar" [class.collapsed]="isCollapsed">
+  <div class="logo">
+    <div class="logo-icon">🌿</div>
+    <div class="logo-text" *ngIf="!isCollapsed">
+      <div class="logo-title">CANTRACE</div>
+      <div class="logo-subtitle">Environmental Ops</div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a *ngFor="let item of navItems"
+       [routerLink]="item.route"
+       routerLinkActive="active"
+       class="nav-item">
+      <span class="nav-icon">{{ item.icon }}</span>
+      <span class="nav-label" *ngIf="!isCollapsed">{{ item.label }}</span>
+      <span class="nav-badge" *ngIf="item.badge && !isCollapsed">{{ item.badge }}</span>
+    </a>
+  </nav>
+
+  <div class="user-profile" *ngIf="!isCollapsed">
+    <div class="user-avatar">A</div>
+    <div class="user-info">
+      <div class="user-name">Admin</div>
+      <div class="user-email">admin@cantrace</div>
+    </div>
+  </div>
+</aside>
